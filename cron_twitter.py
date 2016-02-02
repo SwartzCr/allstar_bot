@@ -19,7 +19,7 @@ def pick_text(full_text):
     for i in range(lines):
         if (line_no + 1) < (len(full_text)-1):
             line_no += 1
-            if "\n".join([text, full_text[line_no]) > 140:
+            if "\n".join([text, full_text[line_no]]) < 140:
                 text = "\n".join([text, full_text[line_no]])
             else:
                 return text
