@@ -13,15 +13,17 @@ def load_text():
     return out
 
 def pick_text(full_text):
-    line_no = random.randint(0,len(text)-1)
-    text1 = full_text[line_no]
-    text2 = ""
-    if (line_no + 1) < (len(text)-1):
-        text2 = full_text[line_no + 1]
-    if len(text1 + text2) < 140:
-        return "\n".join([text1, text2])
-    else:
-        return text1
+    line_no = random.randint(0,len(full_text)-1)
+    text = full_text[line_no]
+    lines = random.randint(0,3)
+    for i in range(lines):
+        if (line_no + 1) < (len(full_text)-1):
+            line_no += 1
+            if "\n".join([text, full_text[line_no]) > 140:
+                text = "\n".join([text, full_text[line_no])
+            else:
+                return text
+    return text
 
 
 def do_thing():
@@ -33,4 +35,4 @@ def do_thing():
     print tweet_text
 
 
-#do_thing()
+do_thing()
